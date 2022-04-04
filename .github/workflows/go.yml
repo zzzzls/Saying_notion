@@ -20,4 +20,4 @@ jobs:
       run: go build ./saying.go
       
     - name: run
-      run: ./saying -token ${{NOTION_TOKEN}} -bid ${{BLOCK_ID}} -did ${{DATABASE_ID}}
+      run: ./saying -token ${{secrets.NOTION_TOKEN}} -bid ${{secrets.BLOCK_ID}} -did ${{secrets.DATABASE_ID}}
