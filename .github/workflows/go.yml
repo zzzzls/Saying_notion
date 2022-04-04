@@ -16,5 +16,8 @@ jobs:
       with:
         go-version: 1.18
 
-    - name: Run
-      run: go run ./seying.go
+    - name: LS
+      run: ls
+      
+    - name: RUN
+      run: go run ./saying.go
