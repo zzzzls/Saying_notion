@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  build:
+  RUN:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v3
@@ -16,8 +16,8 @@ jobs:
       with:
         go-version: 1.18
 
-    - name: LS
-      run: echo ${{ secrets.notion_token }}
+    - name: build
+      run: go build ./saying.go
       
-#     - name: RUN
-#       run: go run ./saying.go
+    - name: run
+      run: ./saying -token ${{NOTION_TOKEN}} -bid ${{BLOCK_ID}} -did ${{DATABASE_ID}}
