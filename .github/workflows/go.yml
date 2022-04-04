@@ -1,8 +1,8 @@
 name: Go
 
 on:
-  watch:
-    types: [started]
+  schedule:
+    - cron:  '25 1,15 * * *'
 
 jobs:
 
