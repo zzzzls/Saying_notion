@@ -12,12 +12,6 @@ import (
 	"time"
 )
 
-// var (
-// 	notion_token = "secret_pPSHpp3siLtjYsC4VfdOiQXQcvqlD1muEjHbzlr54e6"
-// 	block_id     = "758ea3e7-1a27-4f1a-973e-5e2f0095c0ef"
-// 	database_id  = "a352c8223a374aad9294117670dee0bf"
-// )
-
 var (
 	notion_token string
 	block_id     string
@@ -33,7 +27,14 @@ func main() {
 	flag.Parse()
 
 	s := QueryDatabase()
-	UpdateNotionBlock(s)
+
+	// 指定时区为 UTC+8
+	// 获取当前时间, 拼接至句子后
+	tz := time.FixedZone("UTC", 8*3600)
+	NowTime := time.Now().In(tz).Format("2006-01-02 15:04:05")
+	FullMessage := fmt.Sprintf("%s「%s」", s, NowTime)
+
+	UpdateNotionBlock(FullMessage)
 
 }
 
