@@ -24,6 +24,6 @@
    ./saying -toekn <notion token> -did <Database Id> -bid <Block Id>
    ```
 
-​		
+
 
 ​		
